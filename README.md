@@ -1,4 +1,4 @@
-# capybara_chat
+# capybaraGPT
 
 ## Welcome to the internet's greatest AI tool
-### written by capybaras
+### Brought to you by chief tecmology Capybarrill Ivanov and chief other one Ilan Rodentberg
