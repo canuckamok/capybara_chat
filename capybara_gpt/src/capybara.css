@@ -1,0 +1,86 @@
+.loader-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.capybara-loader {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-color: #8b5e3c;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .capybara-loader:before,
+  .capybara-loader:after {
+    content: "";
+    position: absolute;
+    background-color: #8b5e3c;
+  }
+
+  .capybara-loader:before {
+    width: 50px;
+    height: 30px;
+    border-radius: 30px;
+    top: 40px;
+    left: 40px;
+  }
+
+  .capybara-loader:after {
+    width: 30px;
+    height: 20px;
+    border-radius: 20px;
+    top: 50px;
+    right: 50px;
+  }
+
+  .eye {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 30px;
+  }
+
+  .eye.left {
+    left: 60px;
+  }
+
+  .eye.right {
+    right: 60px;
+  }
+
+  .pupil {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 50%;
+    top: 3px;
+  }
+
+  .pupil.left {
+    left: 3px;
+  }
+
+  .pupil.right {
+    right: 3px;
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .capybara-loader {
+    animation: rotating 2s linear infinite;
+  }
