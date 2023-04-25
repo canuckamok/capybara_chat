@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import './capybara.css';
 
 let capybaraAPI = `https://api.capy.lol/v1/capybara?json=true`;
 
-function noImg(props) {
+function Loader() {
   return (
     <div class="loader-container" id="loader">
       <div class="capybara-loader">
@@ -17,9 +18,24 @@ function noImg(props) {
   );
 }
 
+function NoImg() {
+  return (
+    <div class="loader-container">
+      <div class="capybara-fixed">
+        <div class="eye left">
+          <div class="pupil left"></div>
+        </div>
+        <div class="eye right">
+          <div class="pupil right"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Chatbox({ capyData }) {
   if (!capyData) {
-    return <noImg />;
+     return <NoImg />;
   }
 
   return (
@@ -36,6 +52,7 @@ function Chatbox({ capyData }) {
 function Input() {
   const [currentInput, setCurrentInput] = useState("");
   const [capyData, setCapyData] = useState();
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setCurrentInput(e.target.value);
@@ -45,12 +62,17 @@ function Input() {
     if (currentInput === "") {
       alert("please pull up");
     } else {
+      setLoading(true);
       try {
         const response = await fetch(capybaraAPI);
         const data = await response.json();
+        setTimeout(() => {
         setCapyData(data.data);
+        setLoading(false);
+        }, 2000);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     }
   };
@@ -64,7 +86,7 @@ function Input() {
   return (
     <>
       <div id="chat-box">
-        <Chatbox capyData={capyData} />
+        {loading ? <Loader /> : <Chatbox capyData={capyData} />}
       </div>
       <div id="input-submit">
         <input

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import './capybara.css';
+
 
 //import Chatbox from "./Chatbox";
 import Input from "./Input";
