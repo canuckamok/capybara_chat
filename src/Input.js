@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './capybara.css';
 
 let capybaraAPI = `https://api.capy.lol/v1/capybara?json=true`;
